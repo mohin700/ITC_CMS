@@ -13,18 +13,13 @@ use App\User;
 class EmployeeController extends Controller
 {
 	public function index(){
-
         $employees = Employee::all();
-
-
 		return view('employee.employees', compact('employees') );
 	}
 
 
     public function create(){
-
         $rms = User::where('role_id', 2)->get();
-    	
     	return view('employee.create', compact('rms')); 
     }
 

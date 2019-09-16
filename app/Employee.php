@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\ClientRecord;
 
 class Employee extends Model
 {
@@ -15,4 +16,10 @@ class Employee extends Model
 
   	return $this->belongsTo(User::class);
   }
+
+  public function ClientRecords(){
+  	return $this->hasMany(ClientRecord::class);
+  }
+
+
 }

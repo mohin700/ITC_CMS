@@ -38,15 +38,16 @@ Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middlewa
 
 
 
-//Relationship Manager(RM) Routs
+//Editor
 Route::group(['as'=>'editor.', 'prefix'=>'editor', 'namespace'=>'Editor', 'middleware'=>['auth', 'editor']], function(){
 
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-
+	Route::get('{id}/show', 'DashboardController@show')->name('show');
+	Route::get('{id}/edit', 'DashboardController@edit')->name('edit');
 
 });
 
-//Sponsor Routs
+//Viewer
 Route::group(['as'=>'viewer.', 'prefix'=>'viewer', 'namespace'=>'Viewer', 'middleware'=>['auth', 'viewer']], function(){
 
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
@@ -56,7 +57,7 @@ Route::group(['as'=>'viewer.', 'prefix'=>'viewer', 'namespace'=>'Viewer', 'middl
 
 
 //Employee
-Route::group(['as'=>'employee.', 'prefix'=>'employee', 'namespace'=>'Employee', 'middleware'=>['auth']], function(){
+Route::group(['as'=>'employee.', 'prefix'=>'employee', 'namespace'=>'Employee', 'middleware'=>['auth', 'admin']], function(){
 
 	Route::get('all', 'EmployeeController@index')->name('all');
 	Route::get('create', 'EmployeeController@create')->name('create');

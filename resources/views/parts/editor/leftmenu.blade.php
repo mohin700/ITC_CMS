@@ -23,7 +23,7 @@
 
 
             <li class="active">
-                <a href="#" class="menu-toggle">
+                <a href="{{ route('editor.dashboard') }}" class="menu-toggle">
                     <i class="material-icons">swap_calls</i>
                     <span>Customers</span>
                 </a>

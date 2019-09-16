@@ -32,7 +32,7 @@
           font-size: 3.5rem;
         }
         .min-height{
-          min-height: 84vh;
+          min-height: 88.6vh;
         }
       }
     </style>
@@ -41,7 +41,7 @@
   </head>
   <body class="bg-light">
   <div class="container min-height">
-  <div class="py-3 text-center">
+  <div class="py-4 text-center">
     <img class="d-block mx-auto mb-4" src="{{ asset('front/img/logo.png') }}" alt="" >
     <h2>Innovative Creation Limited</h2>
     <p class="lead">Client Visit Report Submission</p>
@@ -62,7 +62,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text">#</div>
               </div>
-              <input type="text" name="employeeID" class="form-control" id="inlineFormInputGroupUsername" placeholder="Employee ID">
+              <input type="text" name="employee_id" class="form-control" id="inlineFormInputGroupUsername" placeholder="Employee ID">
             </div>
           </div>
           <div class="col-auto my-1">
