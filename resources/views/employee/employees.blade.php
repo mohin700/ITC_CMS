@@ -52,7 +52,7 @@
                                 <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
                                 <td>{{ $employee->designation }}</td>
                                 <td>{{ $employee->phone }}</td>                                
-                                <td><a href="{{ route('employee.show', $employee->id) }}">View</a></td>
+                                <td><a href="{{ route('employee.show', $employee->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             @endforeach
                            

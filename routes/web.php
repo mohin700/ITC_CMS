@@ -21,9 +21,9 @@ Route::post('/', 'ClientRecordController@submit')->name('welcome.submit');
 Route::post('clientrecord', 'ClientRecordController@clientrecord')->name('clientrecord');
 
 // Session Routs
-Route::get('user/login', 'SessionController@index')->name('login');
-Route::post('user/login', 'SessionController@login')->name('user.login');
-Route::get('user/logout', 'SessionController@logout')->name('logout');
+Route::get('user_login', 'SessionController@index')->name('login');
+Route::post('user_login', 'SessionController@login')->name('user.login');
+Route::get('user_logout', 'SessionController@logout')->name('logout');
 
 
 //Admin Routs
@@ -44,6 +44,7 @@ Route::group(['as'=>'editor.', 'prefix'=>'editor', 'namespace'=>'Editor', 'middl
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 	Route::get('{id}/show', 'DashboardController@show')->name('show');
 	Route::get('{id}/edit', 'DashboardController@edit')->name('edit');
+	Route::post('{id}/edit', 'DashboardController@update')->name('update');
 
 });
 
@@ -51,6 +52,7 @@ Route::group(['as'=>'editor.', 'prefix'=>'editor', 'namespace'=>'Editor', 'middl
 Route::group(['as'=>'viewer.', 'prefix'=>'viewer', 'namespace'=>'Viewer', 'middleware'=>['auth', 'viewer']], function(){
 
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+	Route::get('{id}/show', 'DashboardController@show')->name('show');
 
 
 });

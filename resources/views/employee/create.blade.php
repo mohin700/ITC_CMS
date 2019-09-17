@@ -2,7 +2,7 @@
 
 
 <!-- Page Title -->
-@section('title', 'Create User')
+@section('title', 'Create New Employee')
 
 <!-- Custom Styles -->
 @push('custom-style')
@@ -18,7 +18,7 @@
 @endpush
 
 <!-- Page Heading  -->
-@section('page-head', 'Add New Child')
+@section('page-head', 'Add New Employee')
 
 <!-- Main Content Area -->
 @section('main-content-area')
@@ -32,7 +32,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h2>Enter Valid Child Informations</h2>
+                <h2>Enter Valid Employee Informations</h2>
             </div>
             <div class="body">
                 <form id="form_validation" method="POST" action="{{ route('employee.store') }}" enctype="multipart/form-data" autocomplete="off">

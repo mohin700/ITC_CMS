@@ -27,9 +27,14 @@
 
 <body class="login-page">
     <div class="login-box">
-        <div class="logo">
-            <a href="{{ route('user.login') }}">JAAGO <b>Foundation</b></a>
-            <small>User Login - Sponsor A Child</small>
+
+
+
+        <div class="logo">    
+            <div class="py-3 text-center">
+              <img class="d-block mx-auto mb-4" src="{{ asset('front/img/logo.png') }}" alt="" >
+              <hr class="mb-3">
+            </div>
         </div>
         <div class="card">
             <div class="body">
