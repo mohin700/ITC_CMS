@@ -54,7 +54,7 @@
 
         <div class="row">
           <div class="mb-3 col-md-6">
-            <label for="ClientsName">Clients Name</label>
+            <label for="ClientsName">Clients Name *</label>
             <input type="text" class="form-control" id="ClientsName" name="clients_name" required>
             <div class="invalid-feedback">
               Valid clients name is required.
@@ -62,7 +62,7 @@
           </div>
 
           <div class="mb-3 col-md-6">
-            <label for="cp_name">Contact Person Name</label>
+            <label for="cp_name">Contact Person Name *</label>
             <input type="text" class="form-control" id="cp_name" name="cp_name" required>
             <div class="invalid-feedback">
               Valid contact person name is required.
@@ -73,7 +73,7 @@
         <div class="row">
 
           <div class="mb-3 col-md-6">
-            <label for="cp_phone">Contact person Phone Number</label>
+            <label for="cp_phone">Contact person Phone Number *</label>
             <input type="text" class="form-control" id="cp_phone" name="cp_phone" required>
             <div class="invalid-feedback">
               Valid contact person phone nmber is required.
@@ -81,7 +81,7 @@
           </div>
 
         <div class="mb-3 col-md-6">
-          <label for="cp_email">Contact Person Email</span></label>
+          <label for="cp_email">Contact Person Email *</span></label>
           <input type="email" class="form-control" name="cp_email" id="cp_email" placeholder="you@example.com" required>
           <div class="invalid-feedback">
             Valid contact person phone nmber is required.
@@ -90,7 +90,7 @@
       </div>
 
         <div class="mb-3">
-          <label for="prospective">Prospective Project Name</label>
+          <label for="prospective">Prospective Project Name *</label>
           <input type="text" class="form-control" id="prospective" name="prospective" required>
           <div class="invalid-feedback">
             Prospective Project Name is required.
@@ -98,7 +98,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="brief">Project Brief/Details</label>
+          <label for="brief">Project Brief/Details *</label>
           <input type="text" class="form-control" id="brief" name="brief" required>
           <div class="invalid-feedback">
             Project Brief/Details is required.
@@ -136,7 +136,7 @@
           </div>
 
           <div class="mb-3 col-md-4">
-            <label for="submission_date">Submission Date</label>
+            <label for="submission_date">Submission Date *</label>
             <input type="date" class="form-control" id="submission_date" name="submission_date" required>
             <div class="invalid-feedback">
               Submission Date is required.
@@ -149,7 +149,7 @@
         <hr class="my-4">
         <div class="row">
         <div class="col-md-6">
-          <h3>Need to Tag Other Department</h3>
+          <h3>Need to Tag Other Department *</h3>
           <div class="custom-control custom-checkbox">
             <input type="checkbox" name="dep_planning" class="custom-control-input" id="dep_planning">
             <label class="custom-control-label" for="dep_planning">Strategic Planning</label>

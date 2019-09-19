@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\ClientRecord;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewRecordNotification;
 
 class ClientRecordController extends Controller
 {
@@ -43,7 +45,7 @@ class ClientRecordController extends Controller
             'submission_type'  =>  'required',
             'work_type'        =>  'required',
             'submission_date'  =>  'required',
-            'employeeID'       => 'required'
+            'employeeID'       => 'required',
         ]);
 
 
@@ -69,14 +71,53 @@ class ClientRecordController extends Controller
             
         ]);
 
-        if (!$records->id) {
-            return redirect()->route('welcome')->with('error', 'Something Went Wrong, Please enter valaid info');           
+
+        if ($records->id){
+
+            $mailadress = [
+
+                'planning'  => 'mohin700@gmail.com',
+                'creative'  => 'mohin.pro@gmail.com',
+                'operation' => 'mohin700@gmail.com',
+                'accounts'  => 'mohin700@gmail.com',
+                'hr'        => 'mohin700@gmail.com',
+                'admin'     => 'mohin700@gmail.com',
+                'it'        => 'mohin700@gmail.com',
+                'other'     => 'mohin700@gmail.com',
+            ];
+
+
+            if ($records->dep_planning == 'on') {
+                Mail::to($mailadress['planning'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_creative == 'on') {
+                Mail::to($mailadress['creative'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_operation == 'on') {
+                Mail::to($mailadress['operation'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_accounts == 'on') {
+                Mail::to($mailadress['accounts'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_hr == 'on') {
+                Mail::to($mailadress['hr'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_admin == 'on') {
+                Mail::to($mailadress['admin'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_it == 'on') {
+                Mail::to($mailadress['it'])->send(new NewRecordNotification($records));
+            }
+            if ($records->dep_Other == 'on') {
+                Mail::to($mailadress['other'])->send(new NewRecordNotification($records));
+            }
+            
+
+            return redirect()->route('welcome')->with('success', 'Client Visit Report Successfully Submitted');
         }else{
-           return redirect()->route('welcome')->with('success', 'Client Visit Report Successfully Submitted');
+
+            return redirect()->route('welcome')->with('error', 'Something Went Wrong, Please enter valaid info');
         }
-
-
-
 
     }
 }
