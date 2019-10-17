@@ -35,6 +35,7 @@ class ClientRecordController extends Controller
 
     public function clientrecord(Request $request)
     {
+
     	$this->validate($request, [
             'clients_name'  =>  'required',
             'cp_name'       =>  'required',
@@ -42,8 +43,6 @@ class ClientRecordController extends Controller
             'cp_email'      =>  'required|email',
             'prospective'   =>  'required',
             'brief'         =>  'required',
-            'submission_type'  =>  'required',
-            'work_type'        =>  'required',
             'submission_date'  =>  'required',
             'employeeID'       => 'required',
         ]);
@@ -57,8 +56,14 @@ class ClientRecordController extends Controller
             'cp_email'      =>  $request->cp_email,
             'prospective'   =>  $request->prospective,
             'brief'         =>  $request->brief,
-            'submission_type'  =>  $request->submission_type,
-            'work_type'        =>  $request->work_type,
+            'submission_ppt_tech'               =>  $request->submission_ppt_tech,
+            'submission_fainancial_quotation'   =>  $request->submission_fainancial_quotation,
+            'submission_ppt_with_sample'        =>  $request->submission_ppt_with_sample,
+            'submission_with_quotation'         =>  $request->submission_with_quotation,
+            'submission_other'                  =>  $request->submission_other,
+            'work_event'       =>  $request->work_event,
+            'work_activation'  =>  $request->work_activation,
+            'work_gift_item'   =>  $request->work_activation,
             'submission_date'  =>  $request->submission_date,
             'dep_planning'  => $request->dep_planning,
             'dep_creative'  => $request->dep_creative,

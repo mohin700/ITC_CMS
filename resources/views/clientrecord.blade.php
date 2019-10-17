@@ -108,30 +108,51 @@
         <div class="row">
 
           <div class="col-md-4 mb-3">
-            <label for="submission_type">Type of Submission *</label>
-            <select class="custom-select d-block w-100" id="submission_type" name="submission_type" required>
-              <option value="">Choose...</option>
-              <option>PPT-Technical</option>
-              <option>Financial Quotation</option>
-              <option>PPT with Sample</option>
-              <option>Sample with quotation</option>
-              <option>Other</option>
-            </select>
+            <label>Type of Submission *</label>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="submission_ppt_tech" class="custom-control-input" id="submission_ppt_tech">
+              <label class="custom-control-label" for="submission_ppt_tech">PPT-Technical</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="submission_fainancial_quotation" name="submission_fainancial_quotation">
+              <label class="custom-control-label" for="submission_fainancial_quotation">Financial Quotation</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="submission_ppt_with_sample" name="submission_ppt_with_sample">
+              <label class="custom-control-label" for="submission_ppt_with_sample">PPT with Sample</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="submission_with_quotation" name="submission_with_quotation">
+              <label class="custom-control-label" for="submission_with_quotation">Sample with quotation</label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="submission_other">
+              <label class="custom-control-label" for="submission_other">Other</label>
+            </div>
+
+
+            <input style="display: none;" type="text" class="form-control" id="submission_other_box" name="submission_other" placeholder="Enter Other Type" >
             <div class="invalid-feedback">
-              Please select Type of Submission.
+              Others submission type is required.
             </div>
           </div>          
 
           <div class="col-md-4 mb-3">
-            <label for="work_type">Type of work *</label>
-            <select class="custom-select d-block w-100" id="work_type" name="work_type" required>
-              <option value="">Choose...</option>
-              <option>Event</option>
-              <option>Activation</option>
-              <option>Gift Item</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select Type of work.
+            <label>Type of work *</label>
+
+
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" name="work_event" class="custom-control-input" id="work_event">
+              <label class="custom-control-label" for="work_event">Event</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="work_activation" name="work_activation">
+              <label class="custom-control-label" for="work_activation">Activation</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="work_gift_item" name="work_gift_item">
+              <label class="custom-control-label" for="work_gift_item">Gift Item</label>
             </div>
           </div>
 
@@ -239,5 +260,19 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{{ asset('front/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('front/js/form-validation.js') }}"></script>
+<script>
+  $('#submission_other').click(function() {
+
+      if( $(this).is(':checked')) {
+
+          $("#submission_other_box").show();
+          document.querySelector('#submission_other_box').required = true;
+      } else {
+          $("#submission_other_box").hide();
+          document.querySelector('#submission_other_box').required = false;
+      }
+
+  }); 
+</script>
 </body>
 </html>
