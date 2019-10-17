@@ -48,15 +48,18 @@
 
 <!-- Main Content Area -->
 <?php $__env->startSection('main-content-area'); ?>
+
 <!-- Exportable Table -->
 <div class="row clearfix">
     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
+                <p><a class="btn btn-success" href="<?php echo e(URL::previous()); ?>">Go Back</a></p>
                 <h2>
                     <?php echo e($employee->first_name); ?> <?php echo e($employee->last_name); ?>
 
                 </h2>
+
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

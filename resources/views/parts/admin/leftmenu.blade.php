@@ -51,6 +51,14 @@
                 </ul>
             </li>
 
+            <li class="{{ Request::is('admin/customers*')? 'active' : '' }}">
+                <a href="{{ route('admin.customers') }}" class="menu-toggle">
+                    <i class="material-icons">widgets</i>
+                    <span>All Customers</span>
+                </a>
+                
+            </li>
+
 
         </ul>
     </div>

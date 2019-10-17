@@ -1,19 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 //Client Record
 Route::get('/', 'ClientRecordController@index')->name('welcome');
@@ -26,6 +13,7 @@ Route::post('user_login', 'SessionController@login')->name('user.login');
 Route::get('user_logout', 'SessionController@logout')->name('logout');
 
 
+
 //Admin Routs
 Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth', 'admin']], function(){
 
@@ -33,6 +21,13 @@ Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middlewa
 	Route::get('user/all', 'UserController@index')->name('users');
 	Route::get('user/create', 'UserController@create')->name('user.create');
 	Route::post('user/create', 'UserController@store')->name('user.store');
+	
+
+	//Customers
+	Route::get('customers', 'CustomerController@index')->name('customers');
+	Route::get('customers/{id}/show', 'CustomerController@show')->name('customer.show');
+	Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customer.edit');
+	Route::post('customers/{id}/edit', 'CustomerController@update')->name('customer.update');
 
 });
 
@@ -53,7 +48,6 @@ Route::group(['as'=>'viewer.', 'prefix'=>'viewer', 'namespace'=>'Viewer', 'middl
 
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 	Route::get('{id}/show', 'DashboardController@show')->name('show');
-
 
 });
 

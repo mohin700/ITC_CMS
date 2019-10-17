@@ -514,7 +514,8 @@
                                 <tr>
                                   <td class="attributes_item">
                                     <span class="f-fallback">
-                                      <strong>Type of Submission:</strong> {{ $infos->submission_type }}
+                                      <strong>Type of Submission:</strong> 
+                                      {{ $infos->submission_type }}
                                     </span>
                                   </td>
                                 </tr>

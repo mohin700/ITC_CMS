@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Editor;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Employee;
 use App\ClientRecord;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewRecordNotification;
 
-class DashboardController extends Controller
+class CustomerController extends Controller
 {
     public function index(){
     	$customers = ClientRecord::latest()->get();
@@ -38,8 +41,6 @@ class DashboardController extends Controller
             'cp_email'      =>  'required|email',
             'prospective'   =>  'required',
             'brief'         =>  'required',
-            'submission_type'  =>  'required',
-            'work_type'        =>  'required',
             'submission_date'  =>  'required',
             'employeeID'       => 'required'
         ]);
@@ -56,8 +57,14 @@ class DashboardController extends Controller
             'cp_email'      =>  $request->cp_email,
             'prospective'   =>  $request->prospective,
             'brief'         =>  $request->brief,
-            'submission_type'  =>  $request->submission_type,
-            'work_type'        =>  $request->work_type,
+            'submission_ppt_tech'               =>  $request->submission_ppt_tech,
+            'submission_fainancial_quotation'   =>  $request->submission_fainancial_quotation,
+            'submission_ppt_with_sample'        =>  $request->submission_ppt_with_sample,
+            'submission_with_quotation'         =>  $request->submission_with_quotation,
+            'submission_other'                  =>  $request->submission_other,
+            'work_event'       =>  $request->work_event,
+            'work_activation'  =>  $request->work_activation,
+            'work_gift_item'   =>  $request->work_activation,
             'submission_date'  =>  $request->submission_date,
             'dep_planning'  => $request->dep_planning,
             'dep_creative'  => $request->dep_creative,
@@ -69,10 +76,7 @@ class DashboardController extends Controller
             'dep_Other'     => $request->dep_Other,
         ]);
 
-        return redirect()->route('editor.dashboard')->with('success', 'Data Successfully Updated');
-
-        
-
+        return redirect()->route('admin.dashboard')->with('success', 'Data Successfully Updated');
 
     }
 }
