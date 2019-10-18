@@ -56,7 +56,7 @@
     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-              <p><a class="btn btn-success" href="{{ URL::previous() }}">Go Back</a></p>
+              <p><a class="btn btn-success" href="{{ route('admin.customers') }}">Go Back</a></p>
                 <h2>
                     {{ $client->clients_name }} 
                 </h2>
@@ -124,8 +124,8 @@
                                   <tr>
                                     <td>Type of work</td>
                                     <td><strong>: 
-                                      {{ $client->work_event == 'on'? 'Event, ' :'' }}
-                                      {{ $client->work_activation == 'on'? 'Activation, ' :'' }}
+                                      {{ $client->work_event == 'on'? 'Event, ':'' }}
+                                      {{ $client->work_activation == 'on'? 'Activation, ':'' }}
                                       {{ $client->work_gift_item  == 'on'? 'Gift Item' :'' }}
                                     </strong></td>
                                   </tr>

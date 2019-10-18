@@ -26,7 +26,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h2>Enter Valid Customer Informations</h2>
+              <p><a class="btn btn-success" href="{{ URL::previous() }}">Go Back</a></p>
+              <h2>Enter Valid Customer Informations</h2>
             </div>
             <div class="body">
                 <form id="form_validation" method="POST" action="{{ route('admin.customer.update', $client->id) }}" enctype="multipart/form-data" autocomplete="off">
@@ -121,8 +122,7 @@
                         </div>
 
 
-                        <input  type="text" class="form-control" id="submission_other_box" name="submission_other" placeholder="Enter Other Type" >
-
+                        <input  type="text" class="form-control" id="submission_other_box" name="submission_other" placeholder="Enter Other Type" value="{{$client->submission_other}}" style="{{ $client->submission_other !== Null? '': 'display:none;'  }}">
                     </div>
                     <div class="col-sm-4">
                         <label>Type of work *</label>
@@ -196,6 +196,7 @@
           $("#submission_other_box").show();
           document.querySelector('#submission_other_box').required = true;
       } else {
+          $("#submission_other_box").val("");
           $("#submission_other_box").hide();
           document.querySelector('#submission_other_box').required = false;
       }

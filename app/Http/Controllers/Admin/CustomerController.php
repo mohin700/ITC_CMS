@@ -63,11 +63,12 @@ class CustomerController extends Controller
             'submission_other'                  =>  $request->submission_other,
             'work_event'       =>  $request->work_event,
             'work_activation'  =>  $request->work_activation,
-            'work_gift_item'   =>  $request->work_activation,
+            'work_gift_item'   =>  $request->work_gift_item,
 
         ]);
 
-        return redirect()->route('admin.customers')->with('success', 'Data Successfully Updated');
+        return redirect()->route('admin.customer.show', $child->id)->with('success', 'Data Successfully Updated');
 
     }
 }
+

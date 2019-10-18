@@ -41,7 +41,7 @@
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover dataTable js-exportable table-sm" cellspacing="0" width="100%">
+                    <table class="table table-bordered table-striped table-hover dataTable  table-sm customer-table">
                         <thead>
                             <tr>
                                 <th>Sub. Date</th>
