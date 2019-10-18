@@ -13,14 +13,14 @@ class CustomerController extends Controller
 {
     public function index(){
     	$customers = ClientRecord::latest()->get();
-    	return view('editor.dashboard', compact('customers'));
+    	return view('admin.customer', compact('customers'));
     }
 
     public function show($id){
 
     	$client = ClientRecord::find($id);
 
-    	return view('editor.show', compact('client') );
+    	return view('admin.show_customer', compact('client') );
 
     }    
 
@@ -28,7 +28,7 @@ class CustomerController extends Controller
 
     	$client = ClientRecord::find($id);
 
-    	return view('editor.edit', compact('client') );
+    	return view('admin.edit_customer', compact('client') );
 
     }
 
@@ -41,8 +41,7 @@ class CustomerController extends Controller
             'cp_email'      =>  'required|email',
             'prospective'   =>  'required',
             'brief'         =>  'required',
-            'submission_date'  =>  'required',
-            'employeeID'       => 'required'
+            'employeeID'    =>  'required'
         ]);
 
         $child = ClientRecord::find($id);
@@ -65,18 +64,10 @@ class CustomerController extends Controller
             'work_event'       =>  $request->work_event,
             'work_activation'  =>  $request->work_activation,
             'work_gift_item'   =>  $request->work_activation,
-            'submission_date'  =>  $request->submission_date,
-            'dep_planning'  => $request->dep_planning,
-            'dep_creative'  => $request->dep_creative,
-            'dep_operation' => $request->dep_operation,
-            'dep_accounts'  => $request->dep_accounts,
-            'dep_hr'        => $request->dep_hr,
-            'dep_admin'     => $request->dep_admin,
-            'dep_it'        => $request->dep_it,
-            'dep_Other'     => $request->dep_Other,
+
         ]);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Data Successfully Updated');
+        return redirect()->route('admin.customers')->with('success', 'Data Successfully Updated');
 
     }
 }

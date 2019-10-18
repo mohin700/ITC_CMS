@@ -26,15 +26,32 @@
                 <h2>
                     ALL CUSTOMER
                 </h2>
+<!--                 <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul> -->
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Sub. Date</th>
                                 <th>Client Name</th>
+                                <th>Contact Person</th>
+                                <th>Email</th>
                                 <th>Phone</th>
+                                <th>Project Name</th>
+                                <th>Type of Submission</th>
+                                <th>TType of work</th>
                                 <th>Submitted By</th>
                                 <th>Action</th>
                             </tr>
@@ -42,20 +59,41 @@
                         <tfoot>
                             <tr>
                                 <th>Sub. Date</th>
-                                <th>Name</th>
+                                <th>Client Name</th>
+                                <th>Contact Person</th>
+                                <th>Email</th>
                                 <th>Phone</th>
+                                <th>Project Name</th>
+                                <th>Type of Submission</th>
+                                <th>TType of work</th>
                                 <th>Submitted By</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                        	@foreach($customers as $customer)
+
+                            @foreach($customers as $customer)
                             <tr>
-                                <td>{{ $customer->submission_date }}</td>
+                                <td>{{ $customer->created_at }}</td>
                                 <td>{{ $customer->clients_name }}</td>
+                                <td>{{ $customer->cp_name }}</td>
+                                <td>{{ $customer->cp_email }}</td>
                                 <td>{{ $customer->cp_phone }}</td>
+                                <td>{{ $customer->prospective }}</td>
+                                <td>
+                                    {{ $customer->submission_ppt_tech == 'on'? 'PPT-Technical, ':'' }}
+                                    {{ $customer->submission_fainancial_quotation == 'on'? 'Financial Quotation, ': '' }}
+                                    {{ $customer->submission_ppt_with_sample == 'on'? 'PPT with Sample, ': '' }}
+                                    {{ $customer->submission_with_quotation == 'on'? 'Sample with quotation, ':''  }}
+                                    {{ $customer->submission_other }}
+                                </td>
+                                <td>
+                                    {{ $customer->work_event == 'on'? 'Event, ' :'' }}
+                                    {{ $customer->work_activation == 'on'? 'Activation, ' :'' }}
+                                    {{ $customer->work_gift_item  == 'on'? 'Gift Item' :'' }}                                    
+                                </td>
                                 <td>{{ $customer->employee->first_name }} {{ $customer->employee->last_name }}</td>
-                                <td><a href="{{ route('viewer.show', $customer->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a href="{{ route('editor.show', $customer->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             @endforeach
                            
@@ -67,8 +105,6 @@
     </div>
 </div>
 <!-- #END# Exportable Table -->
-
-
 
 
 @endsection

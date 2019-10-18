@@ -38,8 +38,8 @@ Route::group(['as'=>'editor.', 'prefix'=>'editor', 'namespace'=>'Editor', 'middl
 
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 	Route::get('{id}/show', 'DashboardController@show')->name('show');
-	Route::get('{id}/edit', 'DashboardController@edit')->name('edit');
-	Route::post('{id}/edit', 'DashboardController@update')->name('update');
+	//Route::get('{id}/edit', 'DashboardController@edit')->name('edit');
+	//Route::post('{id}/edit', 'DashboardController@update')->name('update');
 
 });
 
