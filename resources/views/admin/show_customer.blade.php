@@ -67,7 +67,8 @@
                             <i class="material-icons">more_vert</i>
                         </a>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="{{ route('admin.customer.edit', $client->id ) }}">Edit Profile</a></li>
+                            <li><a href="{{ route('admin.customer.edit', $client->id ) }}">Edit Record</a></li>
+                            <li><a onclick="return confirm('Are you sure you want to Remove?');" href="{{ route('admin.customer.destroy', $client->id ) }}">Delete Record</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -133,7 +134,7 @@
 
                                   <tr>
                                     <td>Submission Date</td>
-                                    <td><strong>: {{ $client->submission_date }}</strong></td>
+                                    <td><strong>: {{ $client->created_at }}</strong></td>
                                   </tr>
                                   <tr>
                                     <td>Submited By</td>

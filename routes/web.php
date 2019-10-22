@@ -28,6 +28,7 @@ Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middlewa
 	Route::get('customers/{id}/show', 'CustomerController@show')->name('customer.show');
 	Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customer.edit');
 	Route::post('customers/{id}/edit', 'CustomerController@update')->name('customer.update');
+	Route::get('customers/{id}/destroy', 'CustomerController@destroy')->name('customer.destroy');
 
 });
 

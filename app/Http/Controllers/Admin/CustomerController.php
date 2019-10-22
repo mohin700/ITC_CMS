@@ -70,5 +70,14 @@ class CustomerController extends Controller
         return redirect()->route('admin.customer.show', $child->id)->with('success', 'Data Successfully Updated');
 
     }
+
+
+    public function destroy($id){
+
+        $client = ClientRecord::find($id);
+        $client->delete();
+        return redirect()->route('admin.customers')->with('success', 'Record Successfully Removed');
+
+    }
 }
 

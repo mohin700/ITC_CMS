@@ -56,10 +56,10 @@
     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
+                <p><a class="btn btn-success" href="{{ URL::previous() }}">Go Back</a></p>
                 <h2>
                     {{ $client->clients_name }} 
                 </h2>
-                <div class="header-dropdown m-r--5"><a class="btn btn-success" href="{{ URL::previous() }}">Go Back</a></div>
 
             </div>
             <div class="body">
@@ -122,7 +122,7 @@
 
                                   <tr>
                                     <td>Submission Date</td>
-                                    <td><strong>: {{ $client->submission_date }}</strong></td>
+                                    <td><strong>: {{ $client->created_at }}</strong></td>
                                   </tr>
                                   <tr>
                                     <td>Submited By</td>

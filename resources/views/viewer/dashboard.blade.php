@@ -41,7 +41,7 @@
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover dataTable js-exportable table-sm" cellspacing="0" width="100%">
+                    <table class="table table-bordered table-striped table-hover dataTable customer-table table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Sub. Date</th>
@@ -93,7 +93,7 @@
                                     {{ $customer->work_gift_item  == 'on'? 'Gift Item' :'' }}                                    
                                 </td>
                                 <td>{{ $customer->employee->first_name }} {{ $customer->employee->last_name }}</td>
-                                <td><a href="{{ route('editor.show', $customer->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                <td><a href="{{ route('viewer.show', $customer->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                             </tr>
                             @endforeach
                            
